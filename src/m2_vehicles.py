@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1. (4 pts)
+# DONE: 1. (4 pts)
 #
 #   For this _todo_, create a parent class called Vehicle. It should have an
 #   __init__() function that sets two properties:
@@ -24,9 +24,23 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Vehicle:
+    def __init__(self, year, make, model):
+        self.year=year
+        self.make=make
+        self.model=model
 
+    def horn(self):
+        print()
+        print("BEEP BEEP!!!")
+
+    def vehicle_info(self):
+        print(f"Year: {self.year}")
+        print(f"Make: {self.make}")
+        print(f"Model: {self.model}")
+        print()
 ###############################################################################
-# TODO: 2. (2 pts)
+# DONE: 2. (2 pts)
 #
 #   For this _todo_, create a child class called Car that inherits its
 #   class from Vehicle. Since Vehicle already assumes the vehicle is a car, we
@@ -35,9 +49,10 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
-
+class Car(Vehicle):
+    pass
 ###############################################################################
-# TODO: 2. (4 pts)
+# DONE: 2. (4 pts)
 #
 #   For this _todo_, create a child class called Boat that inherits its class
 #   from Vehicle.
@@ -59,9 +74,21 @@
 #   
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Boat(Vehicle):
+    def __init__(self, year, name):
+        super().__init__(year, "", "")
+        self.name=name
 
+    def horn(self):
+        print("TOOT TOOT!!!")
+
+    def vehicle_info(self):
+        print(f"Year: {self.year}")
+        print(f"Name: {self.name}")
+        print()
+#Used Chat GPT because I kept getting an error saying I needed to use make and model and chat GPT said to do this.
 ###############################################################################
-# TODO: 3. (4 pts)
+# DONE: 3. (4 pts)
 #
 #   For this _todo_, create a child class called Train that inherits its class
 #   from Vehicle. A Train has only two parameter:
@@ -79,7 +106,18 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Train(Vehicle):
+    def __init__ (self, number, length):
+        self.number=number
+        self.length=length
 
+    def horn(self):
+        print("CHOO CHOO!!!")
+
+    def vehicle_info(self):
+        print(f"Number: {self.number}")
+        print(f"Length: {self.length}")
+        print()
 ###############################################################################
 # TODO: 4. (3 pts)
 #
@@ -92,3 +130,15 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+Vroom = Car("2011", "BMW", "535i xDrive")
+Vroom.horn()
+Vroom.vehicle_info()
+
+
+Boat_Noise = Boat("2020", "Adventurer of the Seas")
+Boat_Noise.horn()
+Boat_Noise.vehicle_info()
+
+Chugga = Train("A113", "63")
+Chugga.horn()
+Chugga.vehicle_info()
